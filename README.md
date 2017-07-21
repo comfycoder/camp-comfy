@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
 
-See [Demo](https://comfycoder.github.io/camp-comfy/camp-comfy/)
+See [Demo](https://comfycoder.github.io/camp-comfy/)
 
 ## Development server
 
