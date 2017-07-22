@@ -16,7 +16,8 @@
     "lint": "ng lint --type-check --format stylish",
     "lint:fix": "ng lint --type-check --fix --format stylish",
     "lint:ci": "ng lint --type-check",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "e2e:ci": "ng e2e  --config=protractor-ci.conf.js"
   },
   "private": true,
   "dependencies": {
