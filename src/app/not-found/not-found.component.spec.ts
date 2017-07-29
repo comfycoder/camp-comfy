@@ -15,7 +15,7 @@ describe('NotFoundComponent', () => {
       imports: [
         RouterTestingModule.withRoutes([
           {
-            path: 'error',
+            path: 'not-found',
             component: NotFoundComponent
           }
         ])

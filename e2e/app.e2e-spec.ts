@@ -1,5 +1,7 @@
 import { CampComfyPage } from './app.po';
 
+import '../src/app/rxjs-extensions';
+
 describe('camp-comfy App', () => {
   let page: CampComfyPage;
 
