@@ -1,5 +1,6 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import './rxjs-extensions';
 
@@ -21,6 +22,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    JsonpModule,
     ServicesModule.forRoot(),
     SharedModule.forRoot(),
     SharedModule,
