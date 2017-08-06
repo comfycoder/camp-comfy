@@ -3,13 +3,16 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import './rxjs-extensions';
 
+import { SharedModule } from './shared/shared.module';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        SharedModule
       ],
       declarations: [
         AppComponent
