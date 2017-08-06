@@ -1,6 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FlickrService } from './flickr.service';
+
 @NgModule({
   imports: [
     CommonModule
@@ -11,7 +13,7 @@ export class ServicesModule {
     return {
       ngModule: ServicesModule,
       providers: [
-
+        FlickrService
       ]
     };
   }
