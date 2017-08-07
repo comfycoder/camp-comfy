@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { SearchFlickrComponent } from './search-flickr.component';
+
+import { FlickrService } from '../services/flickr.service';
 
 describe('SearchFlickrComponent', () => {
   let component: SearchFlickrComponent;
@@ -8,9 +13,24 @@ describe('SearchFlickrComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchFlickrComponent ]
+      imports: [
+        FormsModule,
+        HttpModule,
+        RouterTestingModule.withRoutes([
+          {
+            path: 'search',
+            component: SearchFlickrComponent
+          }
+        ])
+      ],
+      declarations: [
+        SearchFlickrComponent
+      ],
+      providers: [
+        FlickrService
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
