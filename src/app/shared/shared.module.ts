@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   imports: [
@@ -10,11 +11,13 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
   ],
   declarations: [
     PageHeaderComponent,
-    PageFooterComponent
+    PageFooterComponent,
+    SpinnerComponent
   ],
   exports: [
     PageHeaderComponent,
-    PageFooterComponent
+    PageFooterComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule {
