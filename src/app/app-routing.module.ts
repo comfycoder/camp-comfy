@@ -14,6 +14,10 @@ const routes: Routes = [
     }
   },
   {
+    path: 'search',
+    loadChildren: './search-flickr/search-flickr.module#SearchFlickrModule'
+  },
+  {
     path: 'error',
     component: ErrorComponent,
     data: {

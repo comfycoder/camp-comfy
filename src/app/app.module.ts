@@ -1,5 +1,6 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import './rxjs-extensions';
@@ -22,6 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpModule,
     JsonpModule,
     ServicesModule.forRoot(),
