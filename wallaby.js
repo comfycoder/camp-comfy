@@ -41,6 +41,7 @@ module.exports = function (wallaby) {
       { pattern: 'node_modules/jquery/dist/jquery.slim.min.js', load: true },
       { pattern: 'node_modules/tether/dist/js/tether.min.js', load: true },
       { pattern: 'node_modules/bootstrap/dist/js/bootstrap.min.js', load: true },
+      { pattern: 'node_modules/spin.js/spin.min.js', load: true },
       { pattern: 'src/**/*.ts', load: false },
       { pattern: 'src/**/*.d.ts', ignore: true },
       { pattern: 'src/**/*.css', load: false },
