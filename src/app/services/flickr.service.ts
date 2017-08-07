@@ -12,12 +12,6 @@ export class FlickrService {
 
   baseUrl: string = 'https://api.flickr.com/services/rest';
 
-  private photos: any[] = [];
-
-  public getPhotos(): any[] {
-    return this.photos;
-  }
-
   search(searchText: string): Observable<any> {
 
     console.log(searchText);
@@ -43,9 +37,9 @@ export class FlickrService {
       .catch(this.handleError);
   }
 
-  private extractData(res: Response): any {
+  private extractData(res: Response): any[] {
 
-    this.photos = [];
+    const photos: any[] = [];
 
     const respPhotos = res.json().photos.photo;
 
@@ -67,10 +61,10 @@ export class FlickrService {
         titleText = title.substring(0, pos - 1);
       }
 
-      this.photos.push({ url: photoUrl, title: titleText });
+      photos.push({ url: photoUrl, title: titleText });
     }
 
-    return res.json().photos.photo;
+    return photos;
   }
 
   private handleError(error: Response | any) {
