@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SearchFlickrComponent } from './search-flickr.component';
 
 import { FlickrService } from '../services/flickr.service';
+import { SpinnerService } from '../services/spinner.service';
 
 describe('SearchFlickrComponent', () => {
   let component: SearchFlickrComponent;
@@ -27,7 +28,8 @@ describe('SearchFlickrComponent', () => {
         SearchFlickrComponent
       ],
       providers: [
-        FlickrService
+        FlickrService,
+        SpinnerService
       ]
     })
       .compileComponents();

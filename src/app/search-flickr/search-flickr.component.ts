@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { FlickrService } from '../services/flickr.service';
+import { SpinnerService } from '../services/spinner.service';
 
 @Component({
   selector: 'cc-search-flickr',
@@ -16,7 +17,8 @@ export class SearchFlickrComponent implements OnInit, OnDestroy {
 
   constructor(
     private flickrService: FlickrService,
-    private router: Router
+    private router: Router,
+    private spinnerService: SpinnerService
   ) { }
 
   ngOnInit() {
@@ -35,6 +37,8 @@ export class SearchFlickrComponent implements OnInit, OnDestroy {
       return;
     }
 
+    this.spinnerService.show();
+
     this.flickrService.search(this.searchString).subscribe(
       data => {
         if (data.length === 0) {
@@ -48,10 +52,12 @@ export class SearchFlickrComponent implements OnInit, OnDestroy {
       },
       err => {
         console.log(err);
+        this.spinnerService.hide();
         this.router.navigate(['/error']);
       },
       () => {
         console.log('Flickr search complete');
+        this.spinnerService.hide();
       }
     );
   }
