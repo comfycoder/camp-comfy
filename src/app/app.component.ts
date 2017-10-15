@@ -4,6 +4,7 @@ import { Router, NavigationStart, NavigationEnd, ActivatedRouteSnapshot } from '
 import { Observable } from 'rxjs/Observable';
 
 import { SpinnerService } from './services/spinner.service';
+import { ConfigService } from './config.service';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +19,18 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public constructor(
     private router: Router,
+    private config: ConfigService,
     private titleService: Title,
     private spinnerService: SpinnerService
   ) { }
 
   ngOnInit() {
+
+    // If there is no startup data received (maybe an error!)
+    // navigate to error route
+    if (!this.config.configData) {
+      this.router.navigate(['error'], { replaceUrl: true });
+    }
 
     this.title = this.router.events
       .filter((event) => event instanceof NavigationEnd)
@@ -67,8 +75,8 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       }
     },
-    (err) => {
-      console.log(err);
-    });
+      (err) => {
+        console.log(err);
+      });
   }
 }
