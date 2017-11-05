@@ -8,7 +8,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
-import { ConfigService } from './config.service';
+import { ConfigService } from './services/config.service';
 import { SpinnerService } from './services/spinner.service';
 
 describe('AppComponent', () => {

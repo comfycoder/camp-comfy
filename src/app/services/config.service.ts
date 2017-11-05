@@ -3,10 +3,12 @@ import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import { Configuration } from '../models';
+
 @Injectable()
 export class ConfigService {
 
-  private _configData: any;
+  private _config: Configuration;
 
   constructor(private http: Http) { }
 
@@ -14,20 +16,23 @@ export class ConfigService {
   // Important: It should return a Promise
   load(): Promise<any> {
 
-    this._configData = null;
+    this._config = null;
 
     return this.http
       .get('./assets/config.json')
       .map((res: Response) => res.json())
       .toPromise()
       .then((data: any) => {
-        this._configData = data;
+        this._config = <Configuration>data;
       })
       .catch((err: any) => Promise.resolve());
   }
 
-  get configData(): any {
-    return this._configData;
+  get config(): Configuration {
+    return this._config;
   }
 
+  setConfigData(config: Configuration) {
+    this._config = config;
+  }
 }

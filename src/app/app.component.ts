@@ -3,8 +3,8 @@ import { Title } from '@angular/platform-browser';
 import { Router, NavigationStart, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
+import { ConfigService } from './services/config.service';
 import { SpinnerService } from './services/spinner.service';
-import { ConfigService } from './config.service';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // If there is no startup data received (maybe an error!)
     // navigate to error route
-    if (!this.config.configData) {
+    if (!this.config.config) {
       this.router.navigate(['error'], { replaceUrl: true });
     }
 

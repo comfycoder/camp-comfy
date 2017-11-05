@@ -14,12 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { ConfigService } from './config.service';
-
-export function configServiceFactory(configService: ConfigService): Function {
-  return () => configService.load();
-}
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,14 +32,7 @@ export function configServiceFactory(configService: ConfigService): Function {
     AppRoutingModule
   ],
   providers: [
-    Title,
-    ConfigService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: configServiceFactory,
-      deps: [ConfigService],
-      multi: true
-    }
+    Title
   ],
   bootstrap: [AppComponent]
 })

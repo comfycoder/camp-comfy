@@ -1,8 +1,14 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, APP_INITIALIZER, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ConfigService } from './config.service';
+import { AppStateService } from './app-state.service';
 import { FlickrService } from './flickr.service';
 import { SpinnerService } from './spinner.service';
+
+export function configServiceFactory(configService: ConfigService): Function {
+  return () => configService.load();
+}
 
 @NgModule({
   imports: [
@@ -14,6 +20,14 @@ export class ServicesModule {
     return {
       ngModule: ServicesModule,
       providers: [
+        ConfigService,
+        {
+          provide: APP_INITIALIZER,
+          useFactory: configServiceFactory,
+          deps: [ConfigService],
+          multi: true
+        },
+        AppStateService,
         FlickrService,
         SpinnerService
       ]
