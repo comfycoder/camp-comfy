@@ -12,29 +12,29 @@ declare var Spinner: any;
 export class SpinnerComponent implements OnInit, OnDestroy {
 
     private spinner: any;
-    show: boolean = false;
+    show = false;
     private element: any = null;
     private subscription: Subscription = null;
 
-    @Input() lines: number = 12; // The number of lines to draw
-    @Input() length: number = 20; // The length of each line
-    @Input() width: number = 12; // The line thickness
-    @Input() radius: number = 50; // The radius of the inner circle
-    @Input() scale: number = 1.0; // Scales overall size of the spinner
-    @Input() corners: number = 1; // Corner roundness (0..1)
-    @Input() color: string = '#881635'; // #rgb or #rrggbb or array of colors
-    @Input() opacity: number = 0.25; // Opacity of the lines
-    @Input() rotate: number = 0; // The rotation offset
-    @Input() direction: number = 1; // 1: clockwise, -1: counterclockwise
-    @Input() speed: number = 0.8; // Rounds per second
-    @Input() trail: number = 60; // Afterglow percentage
-    @Input() fps: number = 20; // Frames per second when using setTimeout() as a fallback for CSS
-    @Input() className: string = 'spinner'; // The CSS class to assign to the spinner
-    @Input() top: string = '50%'; // Top position relative to parent
-    @Input() left: string = '50%'; // Left position relative to parent
-    @Input() shadow: boolean = true; // Whether to render a shadow
-    @Input() hwaccel: boolean = true; // Whether to use hardware acceleration
-    @Input() position: string = 'absolute'; // Element positioning
+    @Input() lines = 12; // The number of lines to draw
+    @Input() length = 20; // The length of each line
+    @Input() width = 12; // The line thickness
+    @Input() radius = 50; // The radius of the inner circle
+    @Input() scale = 1.0; // Scales overall size of the spinner
+    @Input() corners = 1; // Corner roundness (0..1)
+    @Input() color = '#881635'; // #rgb or #rrggbb or array of colors
+    @Input() opacity = 0.25; // Opacity of the lines
+    @Input() rotate = 0; // The rotation offset
+    @Input() direction = 1; // 1: clockwise, -1: counterclockwise
+    @Input() speed = 0.8; // Rounds per second
+    @Input() trail = 60; // Afterglow percentage
+    @Input() fps = 20; // Frames per second when using setTimeout() as a fallback for CSS
+    @Input() className = 'spinner'; // The CSS class to assign to the spinner
+    @Input() top = '50%'; // Top position relative to parent
+    @Input() left = '50%'; // Left position relative to parent
+    @Input() shadow = true; // Whether to render a shadow
+    @Input() hwaccel = true; // Whether to use hardware acceleration
+    @Input() position = 'absolute'; // Element positioning
 
     constructor(
         private spinnerElement: ElementRef,

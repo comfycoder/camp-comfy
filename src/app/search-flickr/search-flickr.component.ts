@@ -12,7 +12,7 @@ import { SpinnerService } from '../services/spinner.service';
 })
 export class SearchFlickrComponent implements OnInit, OnDestroy {
 
-  searchString: string = '';
+  searchString = '';
   photos: any[] = [];
 
   constructor(

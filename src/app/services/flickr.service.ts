@@ -10,7 +10,7 @@ export class FlickrService {
     private http: Http
   ) { }
 
-  baseUrl: string = 'https://api.flickr.com/services/rest';
+  baseUrl = 'https://api.flickr.com/services/rest';
 
   search(searchText: string): Observable<any> {
 
