@@ -19,6 +19,7 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
 import { PaginationComponent } from './pagination/pagination.component';
 import { QuestionGroupComponent } from './question-group/question-group.component';
 import { RxRadioButtonComponent } from './rx-radio-button/rx-radio-button.component';
+import { TextInputComponent } from './text-input/text-input.component';
 
 import { MyCurrencyPipe } from './pipes/my-currency.pipe';
 import { MyNumericPipe } from './pipes/my-numeric.pipe';
@@ -48,7 +49,8 @@ import { MyPercentPipe } from './pipes/my-percent.pipe';
     MyPercentFormatterDirective,
     MyCurrencyPipe,
     MyNumericPipe,
-    MyPercentPipe
+    MyPercentPipe,
+    TextInputComponent
   ],
   exports: [
     PageHeaderComponent,
