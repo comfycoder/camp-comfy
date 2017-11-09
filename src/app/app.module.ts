@@ -28,7 +28,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     JsonpModule,
     ServicesModule.forRoot(),
     SharedModule.forRoot(),
-    SharedModule,
     AppRoutingModule
   ],
   providers: [
