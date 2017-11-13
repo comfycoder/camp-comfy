@@ -45,6 +45,10 @@ module.exports = function (wallaby) {
 
   return {
     files: [
+      { pattern: 'node_modules/jquery/dist/jquery.slim.min.js', load: true },
+      { pattern: 'node_modules/popper.js/dist/umd/popper.min.js', load: true },
+      { pattern: 'node_modules/bootstrap/dist/js/bootstrap.min.js', load: true },
+      { pattern: 'node_modules/spin.js/spin.min.js', load: true },
       { pattern: 'src/**/*.+(ts|css|less|scss|sass|styl|html|json|svg)', load: false },
       { pattern: 'src/**/*.d.ts', ignore: true },
       { pattern: 'src/**/*spec.ts', ignore: true }
