@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FlickrService } from './flickr.service';
 
@@ -7,8 +7,7 @@ describe('FlickrService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpModule,
-        JsonpModule
+        HttpClientModule
       ],
       providers: [FlickrService]
     });

@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptions, Headers, URLSearchParams } from '@angular/http';
+import { HttpClient, HttpResponse, HttpParams, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
+
+export interface FlickrResponse {
+  photos: any;
+}
 
 @Injectable()
 export class FlickrService {
 
   constructor(
-    private http: Http
+    private http: HttpClient
   ) { }
 
   baseUrl = 'https://api.flickr.com/services/rest';
@@ -16,32 +20,28 @@ export class FlickrService {
 
     console.log(searchText);
 
-    const params = new URLSearchParams();
-    params.set('method', 'flickr.photos.search');
-    params.set('format', 'json');
-    // Replace the following with your flicker API key
-    params.set('api_key', '53286431b01976732160ae74b1c81a8b');
-    params.set('action', 'opensearch');
-    params.set('text', searchText);
-    params.set('per_page', '25');
-    params.set('media', 'photos');
-    params.set('content_type', '1');
-    params.set('format', 'json');
-    params.set('nojsoncallback', '1');
+    const params = new HttpParams()
+      .set('method', 'flickr.photos.search')
+      .set('format', 'json')
+      .set('api_key', '53286431b01976732160ae74b1c81a8b')
+      .set('action', 'opensearch')
+      .set('text', searchText)
+      .set('per_page', '25')
+      .set('media', 'photos')
+      .set('content_type', '1')
+      .set('format', 'json')
+      .set('nojsoncallback', '1');
 
-    const requestOptions = new RequestOptions();
-    requestOptions.search = params;
-
-    return this.http.get(this.baseUrl, requestOptions)
-      .map(this.extractData)
-      .catch(this.handleError);
+    return this.http.get(this.baseUrl, { params })
+      .map((data) => this.extractData(data))
+      .catch((err) => this.handleError(err));
   }
 
-  private extractData(res: Response): any[] {
+  private extractData(data): any[] {
 
     const photos: any[] = [];
 
-    const respPhotos = res.json().photos.photo;
+    const respPhotos = data.photos.photo;
 
     for (let i = 0; i < respPhotos.length; i++) {
 
@@ -67,18 +67,17 @@ export class FlickrService {
     return photos;
   }
 
-  private handleError(error: Response | any) {
+  private handleError(res: HttpErrorResponse | any) {
 
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
 
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    if (res instanceof HttpErrorResponse) {
+      const err = res.message || '';
+      errMsg = `${res.status} - ${res.statusText || ''} ${err}`;
     }
     else {
-      errMsg = error.message ? error.message : error.toString();
+      errMsg = res.message ? res.message : res.toString();
     }
 
     console.error(errMsg);

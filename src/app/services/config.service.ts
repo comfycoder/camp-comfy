@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -10,7 +10,7 @@ export class ConfigService {
 
   private _config: Configuration;
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   // This is the method you want to call at bootstrap
   // Important: It should return a Promise
@@ -20,7 +20,6 @@ export class ConfigService {
 
     return this.http
       .get('./assets/config.json')
-      .map((res: Response) => res.json())
       .toPromise()
       .then((data: any) => {
         this._config = <Configuration>data;

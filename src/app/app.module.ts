@@ -1,7 +1,7 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import './rxjs-extensions';
 
@@ -24,8 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    JsonpModule,
+    HttpClientModule,
     ServicesModule.forRoot(),
     SharedModule.forRoot(),
     AppRoutingModule
