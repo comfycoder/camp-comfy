@@ -17,9 +17,6 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { InfoButtonComponent } from './info-button/info-button.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { QuestionGroupComponent } from './question-group/question-group.component';
-import { RxRadioButtonComponent } from './rx-radio-button/rx-radio-button.component';
-import { TextInputComponent } from './text-input/text-input.component';
 
 import { MyCurrencyPipe } from './pipes/my-currency.pipe';
 import { MyNumericPipe } from './pipes/my-numeric.pipe';
@@ -39,8 +36,6 @@ import { MyPercentPipe } from './pipes/my-percent.pipe';
     InfoButtonComponent,
     MessageDialogComponent,
     PaginationComponent,
-    QuestionGroupComponent,
-    RxRadioButtonComponent,
     FocusDirective,
     InputFilterDirective,
     ModalTriggerDirective,
@@ -49,8 +44,7 @@ import { MyPercentPipe } from './pipes/my-percent.pipe';
     MyPercentFormatterDirective,
     MyCurrencyPipe,
     MyNumericPipe,
-    MyPercentPipe,
-    TextInputComponent
+    MyPercentPipe
   ],
   exports: [
     PageHeaderComponent,
@@ -60,8 +54,6 @@ import { MyPercentPipe } from './pipes/my-percent.pipe';
     InfoButtonComponent,
     MessageDialogComponent,
     PaginationComponent,
-    QuestionGroupComponent,
-    RxRadioButtonComponent,
     FocusDirective,
     InputFilterDirective,
     ModalTriggerDirective,

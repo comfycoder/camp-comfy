@@ -11,22 +11,14 @@ export class MyCurrencyPipe implements PipeTransform {
 
     if (value) {
 
-      value = parseFloat(value.toString());
+     value = parseFloat(value.toString());
 
-      let numStr = value.toFixed(0);
-
-      if (decimalPlaces > 0) {
-        numStr = value.toFixed(decimalPlaces);
-      }
+      const numStr = value.toFixed(decimalPlaces);
 
       const numText = Number(numStr).toLocaleString();
 
       return '$' + numText;
     }
-
-    // if (returnZero === true) {
-    //   return '$' + Number(0).toFixed(2);
-    // }
 
     return '';
   }
@@ -40,13 +32,9 @@ export class MyCurrencyPipe implements PipeTransform {
 
       const num = parseFloat(value);
 
-      return num.toFixed(decimalPlaces);
+     return num.toFixed(decimalPlaces);
     }
 
-    // if (returnZero === true) {
-    //   return Number(0).toFixed(decimalPlaces);
-    // }
-
-    return undefined;
+    return '';
   }
 }

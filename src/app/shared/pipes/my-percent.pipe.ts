@@ -5,26 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MyPercentPipe implements PipeTransform {
 
-   transform(value: number | string, decimalPlaces: number = 0): string {
+   transform(value: number | string, decimalPlaces: number = 2): string {
 
     if (value) {
 
       value = parseFloat(value.toString());
 
-      let numStr = value.toFixed(0);
+      const numStr = value.toFixed(decimalPlaces);
 
-      if (decimalPlaces > 0) {
-        numStr = value.toFixed(decimalPlaces);
-      }
-
-      const numText = Number(numStr).toLocaleString();
-
-      return numText;
+      return numStr + '%';
     }
-
-    // if (returnZero === true) {
-    //   return Number(0).toFixed(2);
-    // }
 
     return '';
   }
@@ -41,10 +31,6 @@ export class MyPercentPipe implements PipeTransform {
       return num.toFixed(decimalPlaces);
     }
 
-    // if (returnZero === true) {
-    //   return Number(0).toFixed(decimalPlaces);
-    // }
-
-    return undefined;
+    return '';
   }
 }

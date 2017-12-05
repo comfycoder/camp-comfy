@@ -75,10 +75,6 @@ MIT
 MIT
 MIT
 
-@angular/http@5.0.1
-MIT
-MIT
-
 @angular/platform-browser@5.0.1
 MIT
 MIT
